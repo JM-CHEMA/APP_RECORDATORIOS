@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../core/utils/app_errors.dart';
-import '../../../core/widgets/async_error_view.dart';
-import '../../../core/widgets/confirm_delete.dart';
-import '../data/note_repository.dart';
-import '../domain/note_model.dart';
-import 'note_form_dialog.dart';
-import 'widgets/note_card.dart';
+import '../utils/app_errors.dart';
+import '../components/async_error_view.dart';
+import '../components/confirm_delete.dart';
+import '../helpers/repositories/note_repository.dart';
+import '../models/note_model.dart';
+import '../components/note_form_dialog.dart';
+import '../components/note_card.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key, required this.uid});

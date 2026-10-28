@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../domain/reminder_model.dart';
+import '../../models/reminder_model.dart';
 
 class ReminderRepository {
   ReminderRepository(this.uid, {FirebaseFirestore? firestore})

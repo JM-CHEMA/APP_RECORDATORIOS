@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../core/utils/app_errors.dart';
-import '../../../core/widgets/async_error_view.dart';
-import '../data/user_repository.dart';
-import '../domain/user_model.dart';
+import '../utils/app_errors.dart';
+import '../components/async_error_view.dart';
+import '../helpers/repositories/user_repository.dart';
+import '../models/user_model.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key, required this.uid});

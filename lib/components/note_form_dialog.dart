@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../domain/note_model.dart';
+import '../models/note_model.dart';
 
 class NoteInput {
   const NoteInput({required this.title, required this.content, required this.pinned});

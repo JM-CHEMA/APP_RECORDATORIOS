@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../core/widgets/date_time_picker_field.dart';
-import '../../events/data/event_repository.dart';
-import '../../events/domain/event_model.dart';
-import '../../notes/data/note_repository.dart';
-import '../../notes/domain/note_model.dart';
-import '../domain/reminder_model.dart';
+import 'date_time_picker_field.dart';
+import '../helpers/repositories/event_repository.dart';
+import '../models/event_model.dart';
+import '../helpers/repositories/note_repository.dart';
+import '../models/note_model.dart';
+import '../models/reminder_model.dart';
 
 class ReminderInput {
   const ReminderInput({required this.scheduledAt, this.eventId, this.noteId});

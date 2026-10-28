@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../domain/note_model.dart';
+import '../../models/note_model.dart';
 
 class NoteRepository {
   NoteRepository(this.uid, {FirebaseFirestore? firestore})

@@ -1,8 +1,8 @@
-import '../../../core/services/local_notification_service.dart';
-import '../../events/data/event_repository.dart';
-import '../../notes/data/note_repository.dart';
-import '../domain/reminder_model.dart';
-import 'reminder_repository.dart';
+import 'notification_service.dart';
+import '../repositories/event_repository.dart';
+import '../repositories/note_repository.dart';
+import '../../models/reminder_model.dart';
+import '../repositories/reminder_repository.dart';
 
 /// Coordina Firestore y avisos locales; la UI no conoce los detalles del plugin.
 /// Firestore es la fuente de verdad; si la programación falla se puede reintentar.

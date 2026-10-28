@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/date_formatters.dart';
-import '../../domain/note_model.dart';
+import '../utils/date_formatters.dart';
+import '../models/note_model.dart';
 
 /// Presentación visual de una nota. Las operaciones se gestionan en NotesPage.
 class NoteCard extends StatelessWidget {

@@ -20,17 +20,29 @@ class _ProfilePageState extends State<ProfilePage> {
   late final Stream<UserModel?> _profileStream = _repository.watchProfile(widget.uid);
 
   Future<void> _save() async {
-    if (_saving) return;
+    if (_saving) {
+      return;
+    }
     setState(() => _saving = true);
     try {
       await _repository.updateProfile(widget.uid,
         displayName: _name.text, displayImage: _image.text);
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Perfil actualizado.')));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Perfil actualizado.')),
+        );
+      }
     } catch (error) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(messageForError(error))));
-    } finally { if (mounted) setState(() => _saving = false); }
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(messageForError(error))),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _saving = false);
+      }
+    }
   }
 
   @override
@@ -42,12 +54,16 @@ class _ProfilePageState extends State<ProfilePage> {
     body: StreamBuilder<UserModel?>(
       stream: _profileStream,
       builder: (context, snapshot) {
-        if (snapshot.hasError) return AsyncErrorView(error: snapshot.error!);
+        if (snapshot.hasError) {
+          return AsyncErrorView(error: snapshot.error!);
+        }
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         }
         final profile = snapshot.data;
-        if (profile == null) return const Center(child: Text('Perfil no disponible.'));
+        if (profile == null) {
+          return const Center(child: Text('Perfil no disponible.'));
+        }
         if (!_filled) {
           _name.text = profile.displayName;
           _image.text = profile.displayImage;

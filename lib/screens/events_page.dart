@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../utils/app_errors.dart';
 import '../components/async_error_view.dart';
 import '../components/confirm_delete.dart';
@@ -20,33 +21,68 @@ class _EventsPageState extends State<EventsPage> {
   bool _busy = false;
 
   Future<void> _edit([EventModel? event]) async {
-    final input = await showDialog<EventInput>(context: context,
-      builder: (_) => EventFormDialog(event: event));
-    if (input == null || !mounted || _busy) return;
+    final input = await showDialog<EventInput>(
+      context: context,
+      builder: (_) => EventFormDialog(event: event),
+    );
+    if (input == null || !mounted || _busy) {
+      return;
+    }
     setState(() => _busy = true);
     try {
       if (event == null) {
-        await _repository.create(title: input.title, description: input.description,
-          startDate: input.startDate, endDate: input.endDate);
+        await _repository.create(
+          title: input.title,
+          description: input.description,
+          startDate: input.startDate,
+          endDate: input.endDate,
+        );
       } else {
-        await _repository.update(event.id, title: input.title, description: input.description,
-          startDate: input.startDate, endDate: input.endDate);
+        await _repository.update(
+          event.id,
+          title: input.title,
+          description: input.description,
+          startDate: input.startDate,
+          endDate: input.endDate,
+        );
       }
-    } catch (error) { _showError(error); }
-    finally { if (mounted) setState(() => _busy = false); }
+    } catch (error) {
+      _showError(error);
+    } finally {
+      if (mounted) {
+        setState(() => _busy = false);
+      }
+    }
   }
 
   Future<void> _delete(EventModel event) async {
-    if (_busy || !await confirmDelete(context) || !mounted) return;
+    if (_busy || !await confirmDelete(context) || !mounted) {
+      return;
+    }
     setState(() => _busy = true);
-    try { await _repository.delete(event.id); }
-    catch (error) { _showError(error); }
-    finally { if (mounted) setState(() => _busy = false); }
+    try {
+      await _repository.delete(event.id);
+    } catch (error) {
+      _showError(error);
+    } finally {
+      if (mounted) {
+        setState(() => _busy = false);
+      }
+    }
   }
 
   void _showError(Object error) {
-    if (mounted) ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(error is ArgumentError ? error.message.toString() : messageForError(error))));
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            error is ArgumentError
+                ? error.message.toString()
+                : messageForError(error),
+          ),
+        ),
+      );
+    }
   }
 
   @override
@@ -55,12 +91,19 @@ class _EventsPageState extends State<EventsPage> {
     body: StreamBuilder<List<EventModel>>(
       stream: _stream,
       builder: (context, snapshot) {
-        if (snapshot.hasError) return AsyncErrorView(error: snapshot.error!);
-        if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
+        if (snapshot.hasError) {
+          return AsyncErrorView(error: snapshot.error!);
+        }
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
         final events = snapshot.data!;
-        if (events.isEmpty) return const Center(child: Text('Aún no tienes eventos.'));
+        if (events.isEmpty) {
+          return const Center(child: Text('Aún no tienes eventos.'));
+        }
         return ListView.builder(
-          padding: const EdgeInsets.all(12), itemCount: events.length,
+          padding: const EdgeInsets.all(12),
+          itemCount: events.length,
           itemBuilder: (context, index) {
             final event = events[index];
             return EventCard(
@@ -74,6 +117,8 @@ class _EventsPageState extends State<EventsPage> {
     ),
     floatingActionButton: FloatingActionButton.extended(
       onPressed: _busy ? null : () => _edit(),
-      label: const Text('Nuevo evento'), icon: const Icon(Icons.add)),
+      label: const Text('Nuevo evento'),
+      icon: const Icon(Icons.add),
+    ),
   );
 }

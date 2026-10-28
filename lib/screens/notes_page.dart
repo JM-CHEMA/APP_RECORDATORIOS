@@ -22,7 +22,9 @@ class _NotesPageState extends State<NotesPage> {
   Future<void> _edit([NoteModel? note]) async {
     final input = await showDialog<NoteInput>(
       context: context, builder: (_) => NoteFormDialog(note: note));
-    if (input == null || !mounted || _busy) return;
+    if (input == null || !mounted || _busy) {
+      return;
+    }
     setState(() => _busy = true);
     try {
       if (note == null) {
@@ -31,20 +33,32 @@ class _NotesPageState extends State<NotesPage> {
         await _repository.update(note.id, title: input.title, content: input.content, pinned: input.pinned);
       }
     } catch (error) { _showError(error); }
-    finally { if (mounted) setState(() => _busy = false); }
+    finally {
+      if (mounted) {
+        setState(() => _busy = false);
+      }
+    }
   }
 
   Future<void> _delete(NoteModel note) async {
-    if (_busy || !await confirmDelete(context) || !mounted) return;
+    if (_busy || !await confirmDelete(context) || !mounted) {
+      return;
+    }
     setState(() => _busy = true);
     try { await _repository.delete(note.id); }
     catch (error) { _showError(error); }
-    finally { if (mounted) setState(() => _busy = false); }
+    finally {
+      if (mounted) {
+        setState(() => _busy = false);
+      }
+    }
   }
 
   void _showError(Object error) {
-    if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(messageForError(error))));
+    }
   }
 
   @override
@@ -53,10 +67,16 @@ class _NotesPageState extends State<NotesPage> {
     body: StreamBuilder<List<NoteModel>>(
       stream: _stream,
       builder: (context, snapshot) {
-        if (snapshot.hasError) return AsyncErrorView(error: snapshot.error!);
-        if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
+        if (snapshot.hasError) {
+          return AsyncErrorView(error: snapshot.error!);
+        }
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
         final notes = snapshot.data!;
-        if (notes.isEmpty) return const Center(child: Text('Aún no tienes notas.'));
+        if (notes.isEmpty) {
+          return const Center(child: Text('Aún no tienes notas.'));
+        }
         return ListView.builder(
           padding: const EdgeInsets.all(12),
           itemCount: notes.length,

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../domain/user_model.dart';
+import '../../models/user_model.dart';
 
 /// Encapsula todas las operaciones del documento users/{uid}.
 class UserRepository {

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/home.dart';
-import '../pages/login.dart';
+import '../screens/home.dart';
+import '../screens/login.dart';
 
 /// Pantalla raíz que decide qué sección mostrar según la sesión de Firebase.
 class AuthGate extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../core/services/local_notification_service.dart';
-import '../core/utils/app_errors.dart';
-import '../features/profile/data/user_repository.dart';
+import '../helpers/services/notification_service.dart';
+import '../utils/app_errors.dart';
+import '../helpers/repositories/user_repository.dart';
 
 import 'segunda_pantalla.dart';
 

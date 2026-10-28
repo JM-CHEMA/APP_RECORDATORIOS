@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../components/home_menu_card.dart';
-import '../features/events/presentation/events_page.dart';
-import '../features/notes/presentation/notes_page.dart';
-import '../features/profile/presentation/profile_page.dart';
-import '../features/reminders/presentation/reminders_page.dart';
+import 'events_page.dart';
+import 'notes_page.dart';
+import 'profile_page.dart';
+import 'reminders_page.dart';
 
 class SegundaPantalla extends StatelessWidget {
   const SegundaPantalla({super.key});

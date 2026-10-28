@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'core/services/push_messaging_service.dart';
-import 'core/theme/app_theme.dart';
+import 'helpers/services/push_messaging_service.dart';
+import 'app_theme.dart';
 import 'firebase_options.dart';
 import 'components/auth_gate.dart';
 

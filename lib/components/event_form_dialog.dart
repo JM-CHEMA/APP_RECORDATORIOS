@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/widgets/date_time_picker_field.dart';
-import '../domain/event_model.dart';
+import 'date_time_picker_field.dart';
+import '../models/event_model.dart';
 
 class EventInput {
   const EventInput({required this.title, required this.description,

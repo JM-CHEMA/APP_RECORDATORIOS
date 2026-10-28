@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../domain/event_model.dart';
+import '../../models/event_model.dart';
 
 class EventRepository {
   EventRepository(this.uid, {FirebaseFirestore? firestore})

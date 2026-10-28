@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/date_formatters.dart';
-import '../../domain/reminder_model.dart';
+import '../utils/date_formatters.dart';
+import '../models/reminder_model.dart';
 
 /// Representación visual de un recordatorio. No accede a Firestore.
 class ReminderTile extends StatelessWidget {

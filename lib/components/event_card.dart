@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/date_formatters.dart';
-import '../../domain/event_model.dart';
+import '../utils/date_formatters.dart';
+import '../models/event_model.dart';
 
 /// Componente visual para un evento con su intervalo de fechas.
 class EventCard extends StatelessWidget {

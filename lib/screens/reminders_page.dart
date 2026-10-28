@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../core/services/local_notification_service.dart';
-import '../../../core/utils/app_errors.dart';
-import '../../../core/widgets/async_error_view.dart';
-import '../../../core/widgets/confirm_delete.dart';
-import '../data/reminder_coordinator.dart';
-import '../domain/reminder_model.dart';
-import 'reminder_form_dialog.dart';
-import 'widgets/reminder_tile.dart';
+import '../helpers/services/notification_service.dart';
+import '../utils/app_errors.dart';
+import '../components/async_error_view.dart';
+import '../components/confirm_delete.dart';
+import '../helpers/services/reminder_coordinator.dart';
+import '../models/reminder_model.dart';
+import '../components/reminder_form_dialog.dart';
+import '../components/reminder_tile.dart';
 
 class RemindersPage extends StatefulWidget {
   const RemindersPage({super.key, required this.uid});

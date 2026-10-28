@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../core/utils/app_errors.dart';
-import '../../../core/widgets/async_error_view.dart';
-import '../../../core/widgets/confirm_delete.dart';
-import '../data/event_repository.dart';
-import '../domain/event_model.dart';
-import 'event_form_dialog.dart';
-import 'widgets/event_card.dart';
+import '../utils/app_errors.dart';
+import '../components/async_error_view.dart';
+import '../components/confirm_delete.dart';
+import '../helpers/repositories/event_repository.dart';
+import '../models/event_model.dart';
+import '../components/event_form_dialog.dart';
+import '../components/event_card.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({super.key, required this.uid});

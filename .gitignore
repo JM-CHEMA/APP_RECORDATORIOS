@@ -1,0 +1,43 @@
+
+# Archivos temporales de Dart y Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+
+# Archivos generados por Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+**/generated_plugin_registrant.dart
+
+# Configuración local de Android Studio y otros IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Archivos locales de Android
+android/local.properties
+android/key.properties
+**/captures/
+
+# Credenciales privadas y firmas
+*.jks
+*.keystore
+*.p12
+*.p8
+*.pem
+service-account*.json
+*serviceAccountKey*.json
+.env
+.env.*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Herramienta local de Firebase CLI
+firebase-tools-instant-win.exe
